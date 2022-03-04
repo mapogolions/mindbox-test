@@ -12,6 +12,16 @@ public class ShapeTest
         Assert.Equal(0, triangle.Area());
     }
 
+    [Theory]
+    [InlineData(2, 12.57)]
+    [InlineData(3, 28.27)]
+    [InlineData(8.3, 216.42)]
+    public void ShouldCalculateCircleArea(double radius, double area)
+    {
+        var circle = new Circle(radius);
+        Assert.Equal(area, circle.Area(), precision: 2);
+    }
+
     [Fact]
     public void ShouldThrowExceptionIfRadiusOfCircleIsLessThanZero()
     {
