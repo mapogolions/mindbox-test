@@ -12,6 +12,7 @@ public class Circle : IShape
     public double Radius
     {
         get => _radius;
+
         private init
         {
             if (value < 0) throw new ArgumentOutOfRangeException(nameof(Radius));
