@@ -17,12 +17,20 @@ public class ShapeTest
     }
 
     [Theory]
-    [InlineData(0, 0, 0)]
-    [InlineData(1, 2, 3)]
-    public void ShouldThrowExceptionWhenSumOfTwoSidesIsLessThanOrEqualToThirdSide(double a,
-        double b, double c)
+    [InlineData(6.3, 6.8, 7.8)]
+    public void ShouldReturnFalseIfTriangleIsNotRight(double a, double b, double c)
     {
-        Assert.Throws<ArgumentException>(() => new Triangle((a, b, c)));
+        var triangle = new Triangle(a, b, c);
+        Assert.False(triangle.IsRight());
+    }
+
+    [Theory]
+    [InlineData(3, 4, 5)]
+    [InlineData(18, 30, 24)]
+    public void ShouldReturnTrueIfTriangleIsRight(double a, double b, double c)
+    {
+        var triangle = new Triangle(a, b, c);
+        Assert.True(triangle.IsRight());
     }
 
     [Theory]
