@@ -6,7 +6,17 @@ public class Circle : IShape
 
     public Circle(double radius)
     {
-        _radius = radius;
+        Radius = radius;
+    }
+
+    public double Radius
+    {
+        get => _radius;
+        private init
+        {
+            if (value < 0) throw new ArgumentOutOfRangeException(nameof(Radius));
+            _radius = value;
+        }
     }
 
     public double Area()

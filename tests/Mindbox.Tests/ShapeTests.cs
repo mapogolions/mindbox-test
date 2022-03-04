@@ -13,6 +13,12 @@ public class ShapeTest
     }
 
     [Fact]
+    public void ShouldThrowExceptionIfRadiusOfCircleIsLessThanZero()
+    {
+        Assert.Throws<ArgumentOutOfRangeException>(() => new Circle(-10));
+    }
+
+    [Fact]
     public void ShouldReturnPIIfRadiusOfCircleIsOne()
     {
         var circle = new Circle(1);
