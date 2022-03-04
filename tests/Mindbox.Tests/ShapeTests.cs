@@ -5,6 +5,15 @@ namespace Mindbox.Tests;
 
 public class ShapeTest
 {
+    [Theory]
+    [InlineData(-1, 0, 0)]
+    [InlineData(0, -1, 0)]
+    [InlineData(0, 0, -1)]
+    public void ShouldThrowExceptionIfAtLeastOneSideIsLessThanZero(double a, double b, double c)
+    {
+        Assert.Throws<ArgumentOutOfRangeException>(() => new Triangle((a, b, c)));
+    }
+
     [Fact]
     public void ShuldReturnZeroIfSidesOfTriangleAreZero()
     {
