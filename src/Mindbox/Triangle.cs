@@ -15,8 +15,11 @@ public class Triangle : IShape
 
         private init
         {
-            if (value.a < 0 || value.b < 0 || value.c < 0)
+            var (a, b, c) = value;
+            if (a < 0 || b < 0 || c < 0)
                 throw new ArgumentOutOfRangeException($"Impossible triangle: {nameof(Sides)}");
+            if (a + b <= c || a + c <= b || b + c <= a)
+                throw new ArgumentException($"Impossible triangle: {nameof(Sides)}");
             _sides = value;
         }
     }

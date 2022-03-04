@@ -6,6 +6,15 @@ namespace Mindbox.Tests;
 public class ShapeTest
 {
     [Theory]
+    [InlineData(0, 0, 0)]
+    [InlineData(1, 2, 3)]
+    public void ShouldThrowExceptionWhenSumOfTwoSidesIsLessThanOrEqualToThirdSide(double a,
+        double b, double c)
+    {
+        Assert.Throws<ArgumentException>(() => new Triangle((a, b, c)));
+    }
+
+    [Theory]
     [InlineData(3, 6, 7, 8.94)]
     [InlineData(1, 1, 1, 0.43)]
     public void ShouldCalculateTriangleArea(double a, double b, double c, double area)
@@ -21,13 +30,6 @@ public class ShapeTest
     public void ShouldThrowExceptionIfAtLeastOneSideIsLessThanZero(double a, double b, double c)
     {
         Assert.Throws<ArgumentOutOfRangeException>(() => new Triangle((a, b, c)));
-    }
-
-    [Fact]
-    public void ShuldReturnZeroIfSidesOfTriangleAreZero()
-    {
-        var triangle = new Triangle((a: 0, b: 0, c: 0));
-        Assert.Equal(0, triangle.Area());
     }
 
     [Theory]
