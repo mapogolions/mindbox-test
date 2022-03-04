@@ -24,7 +24,7 @@ public class Triangle : IShape
         {
             var (a, b, c) = value;
             if (a < 0 || b < 0 || c < 0)
-                throw new ArgumentOutOfRangeException($"Impossible triangle: {nameof(Sides)}");
+                throw new ArgumentOutOfRangeException(nameof(Sides));
             if (a + b <= c || a + c <= b || b + c <= a)
                 throw new ArgumentException($"Impossible triangle: {nameof(Sides)}");
             _sides = value;

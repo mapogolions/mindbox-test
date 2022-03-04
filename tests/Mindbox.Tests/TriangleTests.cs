@@ -43,6 +43,14 @@ public class TriangleTest
     }
 
     [Theory]
+    [InlineData(1, 11, 2)]
+    [InlineData(1, 1, 2)]
+    public void ShouldThrowImpossibleTriangleException(double a, double b, double c)
+    {
+        Assert.Throws<ArgumentException>(() => new Triangle(a, b, c));
+    }
+
+    [Theory]
     [InlineData(-1, 0, 0)]
     [InlineData(0, -1, 0)]
     [InlineData(0, 0, -1)]
