@@ -6,6 +6,15 @@ namespace Mindbox.Tests;
 public class ShapeTest
 {
     [Theory]
+    [InlineData(3, 6, 7, 8.94)]
+    [InlineData(1, 1, 1, 0.43)]
+    public void ShouldCalculateTriangleArea(double a, double b, double c, double area)
+    {
+        var triangle = new Triangle((a, b, c));
+        Assert.Equal(area, triangle.Area(), precision: 2);
+    }
+
+    [Theory]
     [InlineData(-1, 0, 0)]
     [InlineData(0, -1, 0)]
     [InlineData(0, 0, -1)]

@@ -16,7 +16,7 @@ public class Triangle : IShape
         private init
         {
             if (value.a < 0 || value.b < 0 || value.c < 0)
-                throw new ArgumentOutOfRangeException(nameof(Sides));
+                throw new ArgumentOutOfRangeException($"Impossible triangle: {nameof(Sides)}");
             _sides = value;
         }
     }
