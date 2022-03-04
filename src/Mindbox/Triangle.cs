@@ -23,6 +23,8 @@ public class Triangle : IShape
 
     public double Area()
     {
-        return 0;
+        var (a, b, c) = _sides;
+        var semiPerimeter = (a + b + c) / 2;
+        return Math.Sqrt(semiPerimeter * (semiPerimeter - a) * (semiPerimeter - b) * (semiPerimeter - c));
     }
 }
