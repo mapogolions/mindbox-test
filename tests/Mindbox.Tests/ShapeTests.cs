@@ -6,6 +6,17 @@ namespace Mindbox.Tests;
 public class ShapeTest
 {
     [Theory]
+    [InlineData(3, 4, 5)]
+    [InlineData(4, 3, 5)]
+    [InlineData(5, 3, 4)]
+    [InlineData(5, 4, 3)]
+    public void IsRightTriangleShouldBeOrderAgnostic(double a, double b, double c)
+    {
+        var triangle = new Triangle(a, b, c);
+        Assert.True(triangle.IsRight());
+    }
+
+    [Theory]
     [InlineData(0, 0, 0)]
     [InlineData(1, 2, 3)]
     public void ShouldThrowExceptionWhenSumOfTwoSidesIsLessThanOrEqualToThirdSide(double a,

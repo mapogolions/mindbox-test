@@ -9,6 +9,13 @@ public class Triangle : IShape
         Sides = sides;
     }
 
+    public Triangle(double a, double b, double c) : this((a, b, c)) { }
+
+    public bool IsRight() =>
+        Math.Pow(_sides.a, 2) + Math.Pow(_sides.b, 2) == Math.Pow(_sides.c, 2) ||
+        Math.Pow(_sides.a, 2) + Math.Pow(_sides.c, 2) == Math.Pow(_sides.b, 2) ||
+        Math.Pow(_sides.b, 2) + Math.Pow(_sides.c, 2) == Math.Pow(_sides.a, 2);
+
     public (double a, double b, double c) Sides
     {
         get => _sides;
