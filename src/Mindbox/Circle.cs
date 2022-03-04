@@ -11,6 +11,6 @@ public class Circle : IShape
 
     public double Area()
     {
-        return 0;
+        return Math.PI * Math.Pow(_radius, 2);
     }
 }
