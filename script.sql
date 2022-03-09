@@ -5,7 +5,7 @@ IF NOT EXISTS (
         FROM sys.databases
         WHERE name = N'MindboxTest'
 )
-CREATE DATABASE MindBoxTest
+CREATE DATABASE MindboxTest
 GO
 
 USE MindboxTest
