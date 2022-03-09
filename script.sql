@@ -32,7 +32,7 @@ CREATE TABLE dbo.ProductCategories
     CategoryId INT NOT NULL,
     CONSTRAINT Pk_ProductCategories_ProductIdCategoryId PRIMARY KEY (ProductId, CategoryId),
     CONSTRAINT Fk_ProductCategories_Products_ProductId FOREIGN KEY (ProductId) REFERENCES dbo.Products (ProductId),
-    CONSTRAINT FK_ProductCategories_Categories_CategoryId FOREIGN KEY (CategoryId) REFERENCES dbo.Categories (CategoryId)
+    CONSTRAINT Fk_ProductCategories_Categories_CategoryId FOREIGN KEY (CategoryId) REFERENCES dbo.Categories (CategoryId)
 )
 
 INSERT INTO dbo.Products (ProductName)
